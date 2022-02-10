@@ -23,7 +23,9 @@ def user_interface():
                          "or\n"
         "Enter 2 to generate your lucky numbers for Texas Mega Millions\n"
                          "or\n"
-        "Enter 3 to exit program: \n")
+        "Enter 3 to use the winning Hockey Score as your multiplier number for Powerball\n"
+                         "or\n"
+        "Enter 4 to exit program: \n")
         # response = int(response)
         # print(response)
 
@@ -53,6 +55,17 @@ def user_interface():
                 print("These are your lucky MEGA MILLIONS numbers", num)
 
         elif response == '3':
+            # random_number()  #testing line
+            with open('lottoType.txt', 'w') as out:
+                out.write("3")
+            # time.sleep(2)
+            with open('numbers.txt', 'r') as infile:
+                num = infile.readline()
+                num = num.strip()
+                print("These are your lucky POWERBALL numbers with the winning "
+                      "hockey score as your multiplier number", num)
+
+        elif response == '4':
             print("You have chosen to exit the program. Goodbye.")
             return
         else:
