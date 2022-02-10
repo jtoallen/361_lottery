@@ -10,17 +10,32 @@ import time
 def random_number():
     """Generates a random integer between 0 - 9 and writes them to a file"""
 
-    random_nums = random.randint(1, 20)
+    random_nums = []
+    # for i in range(6):
+    #     random_nums.append(random.randint(1, 70))
 
     # while True:
     #     time.sleep(1)
 
-    with open('prng-service.txt', 'r') as infile:
+    with open('lottoType.txt', 'r') as infile:
         condition = infile.readline()
         condition = condition.strip()
         print(condition)
-        if condition == 'run':
-            with open('image-service.txt', 'w') as outfile:
+        if condition == '1':
+            #conditions for Powerball
+            with open('numbers.txt', 'w') as outfile:
+                for i in range(5):
+                    random_nums.append(random.randint(1, 69))
+                random_nums.append(random.randint(1,26))
+                print("Powerball", random_nums)
+                outfile.write(str(random_nums))
+        else:
+            #conditions for Mega Millions
+            with open('numbers.txt', 'w') as outfile:
+                for i in range(5):
+                    random_nums.append(random.randint(1, 70))
+                random_nums.append(random.randint(1,25))
+                print("Mega Millions", random_nums)
                 outfile.write(str(random_nums))
     # with open('prng-service.txt', 'w') as update_outfile:
     #     update_outfile.write("")
