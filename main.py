@@ -13,10 +13,18 @@ number in the range 1 to 25
 
 Writes user response to a text file: lottoType.txt
 """
-import time
+
 # from numbers import random_number # testing line
+import time
+import os
+
+os.system()
+
+#explain program to grader
 
 def user_interface():
+    #Give program a title
+    #Explain Lotto game rules to user as extra feature
 
     while True:
         response = input("Enter 1 to generate your lucky numbers for Texas Powerball\n"
@@ -74,8 +82,20 @@ def user_interface():
         elif response == '4':
             print("You have chosen to exit the program. Goodbye.")
             return
+
         else:
-            print("Invalid entry")
+            print("Invalid entry.  Please enter 1, 2, or 3 to generate "
+                  "lottery numbers.  To Exit, enter 4 \n")
+            response = input(
+                "Enter 1 to generate your lucky numbers for Texas Powerball\n"
+                "or\n"
+                "Enter 2 to generate your lucky numbers for Texas Mega Millions\n"
+                "or\n"
+                "Enter 3 to use the Dallas Stars Hockey Score as your powerball number for "
+                "Powerball\n"
+                "or\n"
+                "Enter 4 to exit program: \n")
+
 
 
 def main():
