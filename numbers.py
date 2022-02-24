@@ -69,7 +69,8 @@ def random_number():
                     # print(score)
                     random_nums.append(score)
                 # print("Powerball", random_nums)
-                outfile.write(str(random_nums))
+                with open('numbers.txt', 'w') as outfile:
+                    outfile.write(str(random_nums))
 
 
 
