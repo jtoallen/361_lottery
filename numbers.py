@@ -22,15 +22,15 @@ def random_number():
     #     time.sleep(1)
     #     random_nums = []
 
-        # with contextlib.suppress(FileNotFoundError):
-        #     os.remove('numbers.txt')
-        #     print('file removed')
+    # with contextlib.suppress(FileNotFoundError):
+    #     os.remove('numbers.txt')
+    #     print('file removed')
 
 
     with open('lottoType.txt', 'r') as infile:
         condition = infile.readline()
         condition = condition.strip()
-        print(condition)  #testing code
+        # print(condition)  #testing code
         # with contextlib.suppress(FileNotFoundError):
         #     os.remove('numbers.txt')
         #     print('file removed')
@@ -41,7 +41,7 @@ def random_number():
                 for i in range(5):
                     random_nums.append(random.randint(1, 69))
                 random_nums.append(random.randint(1,26))
-                print("Powerball", random_nums)
+                # print("Powerball", random_nums)
                 outfile.write(str(random_nums))
                 # time.sleep(1)
                 # with contextlib.suppress(FileNotFoundError):

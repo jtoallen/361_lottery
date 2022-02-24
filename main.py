@@ -16,9 +16,14 @@ Writes user response to a text file: lottoType.txt
 
 # from numbers import random_number # testing line
 import time
-import os
+import subprocess
+cmd = 'python numbers.py'
+new_pipe = subprocess.Popen(cmd, shell= True)
+# out, err =p.communicate()
+# print(err)
+# print(out)
 
-os.system()
+
 
 #explain program to grader
 
@@ -45,6 +50,8 @@ def user_interface():
             3-read and output to lottoType.txt file
             """
             # random_number() #testing line
+            new_pipe = subprocess.Popen(cmd, shell=True)
+
             with open('lottoType.txt', 'w') as out:
                 out.write("1")
             # time.sleep(2)
@@ -56,6 +63,7 @@ def user_interface():
 
         elif response == '2':
             # random_number()  #testing line
+            new_pipe = subprocess.Popen(cmd, shell=True)
             with open('lottoType.txt', 'w') as out:
                 out.write("2")
             # time.sleep(2)
@@ -65,9 +73,9 @@ def user_interface():
                 print("These are your lucky MEGA MILLIONS numbers", num)
                 print("\n")
 
-
         elif response == '3':
             # random_number()  #testing line
+            new_pipe = subprocess.Popen(cmd, shell=True)
             with open('lottoType.txt', 'w') as out:
                 out.write("3")
             # time.sleep(2)
@@ -78,8 +86,9 @@ def user_interface():
                       "Stars HOCKEY SCORE as your powerball number", num)
                 print("\n")
 
-
         elif response == '4':
+            with open('lottoType.txt', 'w') as out:
+                out.write("4")
             print("You have chosen to exit the program. Goodbye.")
             return
 
