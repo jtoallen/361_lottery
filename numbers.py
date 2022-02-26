@@ -58,7 +58,7 @@ def random_number():
                 outfile.write(str(random_nums))
 
         elif condition == '3':
-            #conditions for Powerball with winning hockey score
+            #conditions for Powerball with hockey game score
             with open('numbers.txt', 'w') as outfile:
                 for i in range(5):
                     random_nums.append(random.randint(1, 70))
@@ -80,4 +80,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

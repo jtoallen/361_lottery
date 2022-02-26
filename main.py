@@ -16,9 +16,19 @@ Writes user response to a text file: lottoType.txt
 
 # from numbers import random_number # testing line
 import time
+import random
 import subprocess
+import csv
+
+# from tkcalendar import Calendar
+# import requests
+# from tkinter import *
+
 cmd = 'python numbers.py'
 new_pipe = subprocess.Popen(cmd, shell= True)
+
+
+# hockey_cmd =subprocess.Popen('python /Users/jason/cs361/Aaron_Project/project.py')
 # out, err =p.communicate()
 # print(err)
 # print(out)
@@ -36,7 +46,7 @@ def user_interface():
                          "or\n"
         "Enter 2 to generate your lucky numbers for Texas Mega Millions\n"
                          "or\n"
-        "Enter 3 to use the Nashville Predators game score as your powerball number for "
+        "Enter 3 to use the Toronto Maple Leafs game score as your powerball number for "
                          "Powerball\n"
                          "or\n"
         "Enter 4 to exit program: \n")
@@ -73,17 +83,34 @@ def user_interface():
                 print("These are your lucky MEGA MILLIONS numbers", num)
                 print("\n")
 
+        # elif response == '3':
+        #     # random_number()  #testing line
+        #     hockey_pipe = subprocess.Popen(cmd, shell=True)
+        #     with open('lottoType.txt', 'w') as out:
+        #         out.write("3")
+        #     # time.sleep(2)
         elif response == '3':
-            # random_number()  #testing line
-            hockey_pipe = subprocess.Popen(cmd, shell=True)
-            with open('lottoType.txt', 'w') as out:
-                out.write("3")
-            # time.sleep(2)
+            # subprocess.Popen('python reader_for_aaron_output.py', shell=True)
+            subprocess.Popen(cmd, shell=True)
+            # conditions for Powerball with hockey game score
+            random_nums = []
+            with open('numbers.txt', 'w') as outfile:
+                for i in range(5):
+                    random_nums.append(random.randint(1, 70))
+                # random_nums.append(random.randint(1,25))
+                with open('hockeyscore.txt', 'r') as inscore:
+                    score = inscore.readline()
+                    score = int(score.strip())
+                    # print(score)
+                    random_nums.append(score)
+                # print("Powerball", random_nums)
+                with open('numbers.txt', 'w') as outfile:
+                    outfile.write(str(random_nums))
             with open('numbers.txt', 'r') as infile:
                 num = infile.readline()
                 num = num.strip()
-                print("These are your lucky POWERBALL numbers with the Nashville"
-                      "Predators game score as your powerball number", num)
+                print("These are your lucky POWERBALL numbers with the "
+                "Toronto Maple Leafs game score as your powerball number", num)
                 print("\n")
 
         elif response == '4':
@@ -100,11 +127,10 @@ def user_interface():
                 "or\n"
                 "Enter 2 to generate your lucky numbers for Texas Mega Millions\n"
                 "or\n"
-                "Enter 3 to use the Nashville Predators game score as your "
+                "Enter 3 to use the Toronto Maple Leafs game score as your "
                 "powerball number for Powerball\n"
                 "or\n"
                 "Enter 4 to exit program: \n")
-
 
 
 def main():
