@@ -20,17 +20,16 @@ with open('/Users/jason/cs361/Aaron_Project/output.txt') as fin, open('output.cs
                 print("Row 1 is ", row[1])
                 print("Nashville Predators score is", row[2])
                 print(type(row[2]))
-                predators_score = int(row[2])
-                print(predators_score)
-                print("type of score is ", type(predators_score))
-        with open('hockeyscore.txt', 'r') as inscore:
-            score = inscore.readline()
-            score = int(score.strip())
-            # print(score)
-            random_nums.append(score)
+                score = row[2].strip()
+                # print(score)
+                print("type of score is ", type(score))
+                with open('hockeyscore.txt', 'w') as inscore:
+                    inscore.write(score)
+                    print("score written to hockey_score is ", score)
+            #     random_nums.append(score)
         # print("Powerball", random_nums)
-        with open('numbers.txt', 'w') as outfile:
-            outfile.write(str(random_nums))
+        # with open('numbers.txt', 'w') as outfile:
+            # outfile.write(str(random_nums))
             # if row[1] == " 'Florida Panthers' ":
             #     print("scores for TBL " , row[2])
              # csvout.writerow([','.join(row[:5], ','.join(row[5:]))])
