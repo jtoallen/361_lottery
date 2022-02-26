@@ -24,6 +24,8 @@ with open('/Users/jason/cs361/Aaron_Project/output.txt') as fin, \
                 score = row[2].strip()
                 # print(score)
                 print("type of score is ", type(score))
+                with open('hockeyscore.txt', 'w') as inscore:
+                    inscore.write(score)
             elif row[3].strip(" ' ") == 'Toronto Maple Leafs':
                 print("Row cell 3 is ", row[3])
                 print("Toronto Maple Leafs score row 4 is", row[4].strip("[]"))
