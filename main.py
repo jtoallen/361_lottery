@@ -36,7 +36,7 @@ def user_interface():
                          "or\n"
         "Enter 2 to generate your lucky numbers for Texas Mega Millions\n"
                          "or\n"
-        "Enter 3 to use the Dallas Stars Hockey Score as your powerball number for "
+        "Enter 3 to use the Nashville Predators game score as your powerball number for "
                          "Powerball\n"
                          "or\n"
         "Enter 4 to exit program: \n")
@@ -75,15 +75,15 @@ def user_interface():
 
         elif response == '3':
             # random_number()  #testing line
-            new_pipe = subprocess.Popen(cmd, shell=True)
+            hockey_pipe = subprocess.Popen(cmd, shell=True)
             with open('lottoType.txt', 'w') as out:
                 out.write("3")
             # time.sleep(2)
             with open('numbers.txt', 'r') as infile:
                 num = infile.readline()
                 num = num.strip()
-                print("These are your lucky POWERBALL numbers with the Dallas "
-                      "Stars HOCKEY SCORE as your powerball number", num)
+                print("These are your lucky POWERBALL numbers with the Nashville"
+                      "Predators game score as your powerball number", num)
                 print("\n")
 
         elif response == '4':
@@ -100,8 +100,8 @@ def user_interface():
                 "or\n"
                 "Enter 2 to generate your lucky numbers for Texas Mega Millions\n"
                 "or\n"
-                "Enter 3 to use the Dallas Stars Hockey Score as your powerball number for "
-                "Powerball\n"
+                "Enter 3 to use the Nashville Predators game score as your "
+                "powerball number for Powerball\n"
                 "or\n"
                 "Enter 4 to exit program: \n")
 
