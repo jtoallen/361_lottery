@@ -26,6 +26,7 @@ import csv
 
 cmd = 'python numbers.py'
 new_pipe = subprocess.Popen(cmd, shell= True)
+# reader_cmd = 'python reader_for_aaron_output.py'
 
 
 # hockey_cmd =subprocess.Popen('python /Users/jason/cs361/Aaron_Project/project.py')
@@ -52,6 +53,8 @@ def user_interface():
         "Enter 4 to exit program: \n")
         # response = int(response)
         # print(response)
+
+        # subprocess.Popen(cmd, shell=True)
 
         if response == '1':
             """
@@ -91,7 +94,9 @@ def user_interface():
         #     # time.sleep(2)
         elif response == '3':
             # subprocess.Popen('python reader_for_aaron_output.py', shell=True)
+            # subprocess.Popen(reader_cmd, shell=True)
             subprocess.Popen(cmd, shell=True)
+
             # conditions for Powerball with hockey game score
             random_nums = []
             with open('numbers.txt', 'w') as outfile:
@@ -100,18 +105,21 @@ def user_interface():
                 # random_nums.append(random.randint(1,25))
                 with open('hockeyscore.txt', 'r') as inscore:
                     score = inscore.readline()
-                    score = int(score.strip())
+                    # print(type(score))
                     # print(score)
+                    score = int(score.strip())
+                    # print(type(score))
+                    # # print(score)
                     random_nums.append(score)
                 # print("Powerball", random_nums)
                 with open('numbers.txt', 'w') as outfile:
                     outfile.write(str(random_nums))
-            with open('numbers.txt', 'r') as infile:
-                num = infile.readline()
-                num = num.strip()
-                print("These are your lucky POWERBALL numbers with the "
-                "Toronto Maple Leafs game score as your powerball number", num)
-                print("\n")
+                with open('numbers.txt', 'r') as infile:
+                    num = infile.readline()
+                    num = num.strip()
+                    print("These are your lucky POWERBALL numbers with the "
+                    "Toronto Maple Leafs game score as your powerball number", num)
+                    print("\n")
 
         elif response == '4':
             with open('lottoType.txt', 'w') as out:
