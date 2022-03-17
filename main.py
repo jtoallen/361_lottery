@@ -1,6 +1,6 @@
 # Author: Jason Allen
 # Date: 10 February 2022
-#Assignment 6: Minimum Viable Product
+#Portfolio Project: Lottery Number Generator
 """Microservice: Text based UI Service that reads a number from a file and
 returns a set of lucky lottery numbers based on which lottery game the user
 selects: Powerball or Mega Millions
