@@ -5,7 +5,7 @@ with open('/Users/jason/cs361/Aaron_Project/output.txt') as fin, \
         open('output.csv', 'wb') as fout:
         csvin = csv.reader(fin)
         csvout = csv.writer(fout, delimiter='\t')
-        csvout = csv.writer(fout)
+        # csvout = csv.writer(fout)
 
         for row in csvin:
             # print("row type is ", type(row))
@@ -49,21 +49,3 @@ with open('/Users/jason/cs361/Aaron_Project/output.txt') as fin, \
              # csvout.writerow([','.join(row[:5], ','.join(row[5:]))])
 
 
-
-    # reader = reader.strip()
-
-    # print(reader[0][38])
-    # try:
-    #     for row in reader:
-    #         # if count <=10:
-    #             # count +=1
-    #         # if row == "search":
-    #         # print(', '.join(row))
-    #
-    #             print(row[36:38])
-    # #         else:
-    # #             break
-    # except UnicodeDecodeError:
-    #     print("problem", row)
-    #     # print(row[0][3])
-    # print("The number of rows printed is {}".format(count))

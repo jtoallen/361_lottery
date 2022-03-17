@@ -14,33 +14,16 @@ number in the range 1 to 25
 Writes user response to a text file: lottoType.txt
 """
 
-# from numbers import random_number # testing line
-import time
 import random
 import subprocess
-import csv
-
-# from tkcalendar import Calendar
-# import requests
-# from tkinter import *
 
 cmd = 'python numbers.py'
 new_pipe = subprocess.Popen(cmd, shell= True)
-# reader_cmd = 'python reader_for_aaron_output.py'
 
-
-# hockey_cmd =subprocess.Popen('python /Users/jason/cs361/Aaron_Project/project.py')
-# out, err =p.communicate()
-# print(err)
-# print(out)
-
-
-
-#explain program to grader
 
 def user_interface():
-    #Give program a title
-    #Explain Lotto game rules to user as extra feature
+    """user interface takes input reads response and outputs lotto numbers"""
+
 
     while True:
         response = input("Enter 1 to generate your lucky numbers for Texas Powerball\n"
@@ -51,10 +34,6 @@ def user_interface():
                          "Powerball\n"
                          "or\n"
         "Enter 4 to exit program: \n")
-        # response = int(response)
-        # print(response)
-
-        # subprocess.Popen(cmd, shell=True)
 
         if response == '1':
             """
@@ -62,12 +41,11 @@ def user_interface():
             2-sleep for 5 seconds
             3-read and output to lottoType.txt file
             """
-            # random_number() #testing line
             new_pipe = subprocess.Popen(cmd, shell=True)
 
             with open('lottoType.txt', 'w') as out:
                 out.write("1")
-            # time.sleep(2)
+
             with open('numbers.txt', 'r') as infile:
                 num = infile.readline()
                 num = num.strip()
@@ -75,45 +53,30 @@ def user_interface():
                 print("\n")
 
         elif response == '2':
-            # random_number()  #testing line
             new_pipe = subprocess.Popen(cmd, shell=True)
             with open('lottoType.txt', 'w') as out:
                 out.write("2")
-            # time.sleep(2)
+
             with open('numbers.txt', 'r') as infile:
                 num = infile.readline()
                 num = num.strip()
                 print("These are your lucky MEGA MILLIONS numbers", num)
                 print("\n")
 
-        # elif response == '3':
-        #     # random_number()  #testing line
-        #     hockey_pipe = subprocess.Popen(cmd, shell=True)
-        #     with open('lottoType.txt', 'w') as out:
-        #         out.write("3")
-        #     # time.sleep(2)
         elif response == '3':
-            # subprocess.Popen('python reader_for_aaron_output.py', shell=True)
-            # subprocess.Popen(reader_cmd, shell=True)
             subprocess.Popen(cmd, shell=True)
-
-            # conditions for Powerball with hockey game score
             random_nums = []
             with open('numbers.txt', 'w') as outfile:
                 for i in range(5):
                     random_nums.append(random.randint(1, 70))
-                # random_nums.append(random.randint(1,25))
                 with open('hockeyscore.txt', 'r') as inscore:
                     score = inscore.readline()
-                    # print(type(score))
-                    # print(score)
                     score = int(score.strip())
-                    # print(type(score))
-                    # # print(score)
                     random_nums.append(score)
-                # print("Powerball", random_nums)
+
                 with open('numbers.txt', 'w') as outfile:
                     outfile.write(str(random_nums))
+
                 with open('numbers.txt', 'r') as infile:
                     num = infile.readline()
                     num = num.strip()
@@ -142,9 +105,9 @@ def user_interface():
 
 
 def main():
-    # random_number() #testing line
     user_interface()
 
 
 if __name__ == "__main__":
     main()
+
