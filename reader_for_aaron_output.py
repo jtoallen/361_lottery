@@ -5,47 +5,20 @@ with open('/Users/jason/cs361/Aaron_Project/output.txt') as fin, \
         open('output.csv', 'wb') as fout:
         csvin = csv.reader(fin)
         csvout = csv.writer(fout, delimiter='\t')
-        # csvout = csv.writer(fout)
 
         for row in csvin:
-            # print("row type is ", type(row))
-            # print(" row[3] type is ", type(row[3]))
-            # print(row[3].strip('[]'))
-            # row[3].strip("[]")
-            # print("row 3 is type", type(row[3]), (row[3].strip("'")))
-
-            #row 1 is teams
-            #row 2 is scores
-            # print(row[2:3]) #score as string
             if row[1].strip(" ' ") == 'Toronto Maple Leafs':
-                # print("Row cell 1 is ", row[1])
-                # print("Toronto Maple Leafs row 2 score is", row[2])
-                # print(type(row[2]))
                 print("The Toronto Maple Leafs score is", row[2])
                 score = row[2].strip("[]")
                 score = score.strip()
-                # print(score)
-                # print("type of score is ", type(score))
                 with open('hockeyscore.txt', 'w') as inscore:
                     inscore.write(score)
             elif row[3].strip(" ' ") == 'Toronto Maple Leafs':
-                # print("Row cell 3 is ", row[3])
-                # print("Toronto Maple Leafs score row 4 is", row[4].strip("[]"))
-                # print(type(row[4]))
                 score = row[4].strip("[]")
                 print("Toronto Maple Leafs score is", score)
                 score = score.strip()
-                # print(score)
-                # print("type of score is ", type(score))
                 with open('hockeyscore.txt', 'w') as inscore:
                     inscore.write(score)
-                    # print("score written to hockey_score is ", score)
-                    # random_nums.append(score)
-        # print("Powerball", random_nums)
-        # with open('numbers.txt', 'w') as outfile:
-            # outfile.write(str(random_nums))
-            # if row[1] == " 'Florida Panthers' ":
-            #     print("scores for TBL " , row[2])
-             # csvout.writerow([','.join(row[:5], ','.join(row[5:]))])
+
 
 
