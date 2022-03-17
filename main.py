@@ -11,11 +11,12 @@ last number that must be 1 to 26.
 Mega Millions numbers are 6 numbers total. 5 are in range 1 to 70 with the final
 number in the range 1 to 25
 
-Writes user response to a text file: lottoType.txt
+Writes user response to a text file
 """
 
 import random
 import subprocess
+import csv
 
 cmd = 'python numbers.py'
 new_pipe = subprocess.Popen(cmd, shell= True)
@@ -54,10 +55,29 @@ def generate_mega_millions_nums():
         print("\n")
 
 
+def hockey_score_csv_reader():
+    with open('/Users/jason/cs361/Aaron_Project/output.txt') as fin, \
+            open('output.csv', 'wb') as fout:
+        csvin = csv.reader(fin)
+        csvout = csv.writer(fout, delimiter='\t')
+        for row in csvin:
+            if row[1].strip(" ' ") == 'Toronto Maple Leafs':
+                score = row[2].strip("[]")
+                score = score.strip()
+                with open('hockeyscore.txt', 'w') as inscore:
+                    inscore.write(score)
+            elif row[3].strip(" ' ") == 'Toronto Maple Leafs':
+                score = row[4].strip("[]")
+                score = score.strip()
+                with open('hockeyscore.txt', 'w') as inscore:
+                    inscore.write(score)
+
+
 def generate_hockey_score_powerball_nums():
     """generates random set of powerball nums with hockey score as powerball num"""
     subprocess.Popen(cmd, shell=True)
     random_nums = []
+    hockey_score_csv_reader()
     with open('numbers.txt', 'w') as outfile:
         for i in range(5):
             random_nums.append(random.randint(1, 70))
@@ -90,9 +110,21 @@ def invalid_entry():
     print("INVALID ENTRY.\n")
 
 
+def welcome_message():
+    print("Welcome. Today is your lucky day. You have found a program that"
+          " will help you generate a set of lottery numbers that you actually "
+          "like. You have 3 options to choose from today: "
+          " generate Texas Powerball numbers; Texas Mega Millions numbers; or"
+          " for the Toronto Maple Leafs hockey fans, you can"
+          " use the Leafs hockey score as your Texas Powerball number. "
+          " Please create as many lists as you want, because your old lists will"
+          " still be visible. Now, let's get your lucky numbers. \n")
+
+
 def user_interface():
     """user interface takes input reads response and outputs lotto numbers"""
 
+    welcome_message()
     while true_loop_condition():
         response = input("Enter 1 to generate your lucky numbers for Texas Powerball\n"
                          "or\n"
