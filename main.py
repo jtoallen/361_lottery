@@ -30,8 +30,8 @@ def false_loop_condition():
 
 def generate_powerball_nums():
     """generates powerball random numbers"""
-
     new_pipe = subprocess.Popen(cmd, shell=True)
+
     with open('lottoType.txt', 'w') as out:
         out.write("1")
 
@@ -49,6 +49,7 @@ def print_powerball_nums(nums):
 def generate_mega_millions_nums():
     """generates set of random mega millions numbers"""
     new_pipe = subprocess.Popen(cmd, shell=True)
+
     with open('lottoType.txt', 'w') as out:
         out.write("2")
 
@@ -81,7 +82,6 @@ def hockey_score_csv_reader():
 
 def generate_hockey_score_powerball_nums():
     """generates random set of powerball nums with hockey score as powerball num"""
-    subprocess.Popen(cmd, shell=True)
     random_nums = []
     hockey_score_csv_reader()
     with open('numbers.txt', 'w') as outfile:
@@ -92,8 +92,8 @@ def generate_hockey_score_powerball_nums():
             score = int(score.strip())
             random_nums.append(score)
 
-        with open('numbers.txt', 'w') as outfile:
-            outfile.write(str(random_nums))
+        with open('numbers.txt', 'w') as out_nums:
+            out_nums.write(str(random_nums))
 
         with open('numbers.txt', 'r') as infile:
             num = infile.readline()
