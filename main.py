@@ -146,7 +146,7 @@ def user_interface():
             return false_loop_condition()
         else:
             invalid_entry()
-            user_interface()
+
 
 
 def main():
