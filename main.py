@@ -130,19 +130,34 @@ def welcome_message():
           " still be visible. Now, let's get your lucky numbers. \n")
 
 
+def user_response():
+    response = input(
+        "Enter 1 to generate your lucky numbers for Texas Powerball\n"
+        "or\n"
+        "Enter 2 to generate your lucky numbers for Texas Mega Millions\n"
+        "or\n"
+        "Enter 3 to use the Toronto Maple Leafs game score as your powerball number for "
+        "Powerball\n"
+        "or\n"
+        "Enter 4 to exit program: \n")
+    return response
+
+
 def user_interface():
     """user interface takes input reads response and outputs lotto numbers"""
 
     welcome_message()
     while true_loop_condition():
-        response = input("Enter 1 to generate your lucky numbers for Texas Powerball\n"
-                         "or\n"
-        "Enter 2 to generate your lucky numbers for Texas Mega Millions\n"
-                         "or\n"
-        "Enter 3 to use the Toronto Maple Leafs game score as your powerball number for "
-                         "Powerball\n"
-                         "or\n"
-        "Enter 4 to exit program: \n")
+        # response = input("Enter 1 to generate your lucky numbers for Texas Powerball\n"
+        #                  "or\n"
+        # "Enter 2 to generate your lucky numbers for Texas Mega Millions\n"
+        #                  "or\n"
+        # "Enter 3 to use the Toronto Maple Leafs game score as your powerball number for "
+        #                  "Powerball\n"
+        #                  "or\n"
+        # "Enter 4 to exit program: \n")
+
+        response = user_response()
 
         if response == '1':
             generate_powerball_nums()
