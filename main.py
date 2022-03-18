@@ -148,17 +148,7 @@ def user_interface():
 
     welcome_message()
     while true_loop_condition():
-        # response = input("Enter 1 to generate your lucky numbers for Texas Powerball\n"
-        #                  "or\n"
-        # "Enter 2 to generate your lucky numbers for Texas Mega Millions\n"
-        #                  "or\n"
-        # "Enter 3 to use the Toronto Maple Leafs game score as your powerball number for "
-        #                  "Powerball\n"
-        #                  "or\n"
-        # "Enter 4 to exit program: \n")
-
         response = user_response()
-
         if response == '1':
             generate_powerball_nums()
         elif response == '2':
