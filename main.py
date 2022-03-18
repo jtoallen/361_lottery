@@ -38,8 +38,12 @@ def generate_powerball_nums():
     with open('numbers.txt', 'r') as infile:
         num = infile.readline()
         num = num.strip()
-        print("These are your lucky POWERBALL numbers", num)
-        print("\n")
+        print_powerball_nums(num)
+
+
+def print_powerball_nums(nums):
+    print("These are your lucky POWERBALL numbers", nums)
+    print("\n")
 
 
 def generate_mega_millions_nums():
@@ -51,8 +55,12 @@ def generate_mega_millions_nums():
     with open('numbers.txt', 'r') as infile:
         num = infile.readline()
         num = num.strip()
-        print("These are your lucky MEGA MILLIONS numbers", num)
-        print("\n")
+        print_mega_millions_nums(num)
+
+
+def print_mega_millions_nums(nums):
+    print("These are your lucky MEGA MILLIONS numbers", nums)
+    print("\n")
 
 
 def hockey_score_csv_reader():
@@ -62,13 +70,11 @@ def hockey_score_csv_reader():
         csvout = csv.writer(fout, delimiter='\t')
         for row in csvin:
             if row[1].strip(" ' ") == 'Toronto Maple Leafs':
-                score = row[2].strip("[]")
-                score = score.strip()
+                score = row[2].strip("[]").strip()
                 with open('hockeyscore.txt', 'w') as inscore:
                     inscore.write(score)
             elif row[3].strip(" ' ") == 'Toronto Maple Leafs':
-                score = row[4].strip("[]")
-                score = score.strip()
+                score = row[4].strip("[]").strip()
                 with open('hockeyscore.txt', 'w') as inscore:
                     inscore.write(score)
 
@@ -92,10 +98,13 @@ def generate_hockey_score_powerball_nums():
         with open('numbers.txt', 'r') as infile:
             num = infile.readline()
             num = num.strip()
-            print("These are your lucky POWERBALL numbers with the "
-                  "Toronto Maple Leafs game score as your powerball number",
-                  num)
-            print("\n")
+            print_power_ball_hockey_nums(num)
+
+
+def print_power_ball_hockey_nums(nums):
+    print("These are your lucky POWERBALL numbers with the "
+          "Toronto Maple Leafs game score as your powerball number", nums)
+    print("\n")
 
 
 def exit_program():
